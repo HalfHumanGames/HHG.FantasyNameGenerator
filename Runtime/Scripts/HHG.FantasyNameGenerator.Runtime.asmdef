@@ -1,0 +1,14 @@
+{
+    "name": "HHG.FantasyNameGenerator.Runtime",
+    "rootNamespace": "HHG.FantasyNameGenerator.Runtime",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

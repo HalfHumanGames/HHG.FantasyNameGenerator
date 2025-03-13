@@ -1,0 +1,22 @@
+{
+  "name": "com.halfhumangames.fantasynamegenerator",
+  "version": "1.0.1",
+  "displayName": "HHG - Fantasy Name Generator",
+  "description": "Fantasy name generator",
+  "unity": "2020.3",
+  "unityRelease": "6f1",
+  "documentationUrl": "https://github.com/HalfHumanGames/HHG.FantasyNameGenerator/blob/main/README.md",
+  "changelogUrl": "https://github.com/HalfHumanGames/HHG.FantasyNameGenerator/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/HalfHumanGames/HHG.FantasyNameGenerator/blob/main/LICENSE",
+  "keywords": [
+    "Fantasy Name Generator",
+    "Name Generator"
+  ],
+  "author": {
+    "name": "Half Human Games",
+    "email": "contact@halfhumangames.com",
+    "url": "https://github.com/HalfHumanGames"
+  },
+  "dependencies": {
+  }
+}
