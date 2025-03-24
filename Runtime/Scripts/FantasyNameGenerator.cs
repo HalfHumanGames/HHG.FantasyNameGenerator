@@ -89,24 +89,6 @@ namespace HHG.FantasyNameGenerator.Runtime
             return prefix + middleLetter + suffix;
         }
 
-
-        private string TrimToValidLength(string name)
-        {
-            if (name.Length < minLength)
-            {
-                while (name.Length < minLength)
-                {
-                    name += suffixes[Random.Range(0, suffixes.Count)];
-                }
-            }
-            else if (name.Length > maxLength)
-            {
-                name = name.Substring(0, maxLength);
-            }
-
-            return char.ToUpper(name[0]) + name.Substring(1);
-        }
-
         public void GenerateNames(int count, List<string> names)
         {
             names.Clear();
@@ -125,17 +107,27 @@ namespace HHG.FantasyNameGenerator.Runtime
                 return string.Empty;
             }
 
-            string prefix = prefixes[Random.Range(0, prefixes.Count)];
-            string suffix = suffixes[Random.Range(0, suffixes.Count)];
+            int length;
+            string prefix = string.Empty;
+            string suffix = string.Empty;
+
+            do
+            {
+                prefix = prefixes[Random.Range(0, prefixes.Count)];
+                suffix = suffixes[Random.Range(0, suffixes.Count)];
+
+                length = prefix.Length + suffix.Length;
+
+            } while(prefix.ToLower() == suffix.ToLower() || length < minLength || length > maxLength);
 
             char prefixLastChar = prefix[^1];
             char suffixFirstChar = suffix[0];
 
-            bool insertMiddleChar = Random.value < middleLetterChance || prefixLastChar == suffixFirstChar;
+            bool insertMiddleChar = Random.value < middleLetterChance || prefixLastChar == suffixFirstChar || length < maxLength;
 
             string name = insertMiddleChar ? InsertMiddleLetter(prefix, suffix) : prefix + suffix;
 
-            return TrimToValidLength(name);
+            return name;
         }
 
         [ContextMenu(nameof(Test))]

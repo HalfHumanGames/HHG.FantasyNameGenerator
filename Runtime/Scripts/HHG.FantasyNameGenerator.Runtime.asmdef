@@ -1,7 +1,11 @@
 {
     "name": "HHG.FantasyNameGenerator.Runtime",
     "rootNamespace": "HHG.FantasyNameGenerator.Runtime",
-    "references": [],
+    "references": [
+        "GUID:696a0953692949b40bec8730e64e1fdd",
+        "GUID:49b49c76ee64f6b41bf28ef951cb0e50",
+        "GUID:8413476b1284ef74fa7300662f10cca9"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
