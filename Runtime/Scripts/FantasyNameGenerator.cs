@@ -21,13 +21,19 @@ namespace HHG.FantasyNameGenerator.Runtime
         private List<string> prefixes = new List<string>();
         private List<string> suffixes = new List<string>();
 
-        private void Start()
+        private bool loaded;
+
+        private void Awake()
         {
-            LoadInputFiles();
+            EnsureInputFilesAreLoaded();
         }
 
-        private void LoadInputFiles()
+        private void EnsureInputFilesAreLoaded()
         {
+            if (loaded) return;
+
+            loaded = true;
+
             if (prefixesFile == null)
             {
                 Debug.LogError("No prefix file assigned!", this);
@@ -91,6 +97,8 @@ namespace HHG.FantasyNameGenerator.Runtime
 
         public void GenerateNames(int count, List<string> names)
         {
+            EnsureInputFilesAreLoaded();
+
             names.Clear();
 
             for (int i = 0; i < count; i++)
@@ -101,6 +109,8 @@ namespace HHG.FantasyNameGenerator.Runtime
 
         public string GenerateName()
         {
+            EnsureInputFilesAreLoaded();
+
             if (prefixes.Count == 0 || suffixes.Count == 0)
             {
                 Debug.LogError("Prefix or Suffix list is empty. Check your text file assignments.", this);
@@ -133,7 +143,7 @@ namespace HHG.FantasyNameGenerator.Runtime
         [ContextMenu(nameof(Test))]
         private void Test()
         {
-            LoadInputFiles();
+            EnsureInputFilesAreLoaded();
 
             StringBuilder sb = new StringBuilder();
 
